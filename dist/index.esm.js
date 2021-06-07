@@ -398,7 +398,7 @@ class Mat3 {
         return inversed;
     }
     static buildScale(x, y = undefined) {
-        y ?? (y = x);
+        y !== null && y !== void 0 ? y : (y = x);
         return new Mat3().set(x, 0, 0, 0, y, 0, 0, 0, 1);
     }
     static buildRotation(theta) {
@@ -1107,8 +1107,8 @@ class Mat4 {
         return new Mat4().set(vX.x, vX.y, vX.z, 0, vY.x, vY.y, vY.z, 0, vZ.x, vZ.y, vZ.z, 0, source.x, source.y, source.z, 1);
     }
     static buildScale(x, y = undefined, z = undefined) {
-        y ?? (y = x);
-        z ?? (z = x);
+        y !== null && y !== void 0 ? y : (y = x);
+        z !== null && z !== void 0 ? z : (z = x);
         return new Mat4().set(x, 0, 0, 0, 0, y, 0, 0, 0, 0, z, 0, 0, 0, 0, 1);
     }
     static buildRotationX(theta) {
