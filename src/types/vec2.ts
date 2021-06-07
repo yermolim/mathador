@@ -165,6 +165,12 @@ export class Vec2 implements Vec {
 
     return this;
   }
+  
+  truncate(decimalDigits = 5): Vec2 {
+    this.x = +this.x.toFixed(decimalDigits);
+    this.y = +this.y.toFixed(decimalDigits);
+    return this;
+  }
 
   equals(v: Vec2, precision = 6): boolean {
     if (!v) {

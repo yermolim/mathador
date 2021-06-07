@@ -160,6 +160,14 @@ export class Vec4 implements Vec {
     return this;
   }
 
+  truncate(decimalDigits = 5): Vec4 {
+    this.x = +this.x.toFixed(decimalDigits);
+    this.y = +this.y.toFixed(decimalDigits);
+    this.z = +this.z.toFixed(decimalDigits);
+    this.w = +this.w.toFixed(decimalDigits);
+    return this;
+  }
+
   equals(v: Vec4, precision = 6): boolean {
     if (!v) {
       return false;

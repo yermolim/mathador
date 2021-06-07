@@ -212,6 +212,13 @@ export class Vec3 implements Vec {
     this.z += t * (v.z - this.z);
     return this;
   }
+
+  truncate(decimalDigits = 5): Vec3 {
+    this.x = +this.x.toFixed(decimalDigits);
+    this.y = +this.y.toFixed(decimalDigits);
+    this.z = +this.z.toFixed(decimalDigits);
+    return this;
+  }
   
   equals(v: Vec3, precision = 6): boolean {
     if (!v) {

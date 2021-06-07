@@ -63,6 +63,7 @@ export interface Vec extends NumberElements {
   addScalar(s: number): Vec;
   multiplyByScalar(s: number): Vec;
   normalize(): Vec;
+  truncate(decimalDigits: number): Vec;
   getMagnitude(): number;
 }
 
