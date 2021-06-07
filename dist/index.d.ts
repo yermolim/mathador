@@ -132,6 +132,8 @@ export declare class Mat3 implements Mat {
 	toArray(): number[];
 	toIntArray(): Int32Array;
 	toFloatArray(): Float32Array;
+	toIntShortArray(): Int32Array;
+	toFloatShortArray(): Float32Array;
 	[Symbol.iterator](): Iterator<number>;
 }
 export declare class Vec3 implements Vec {
