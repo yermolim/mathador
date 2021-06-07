@@ -398,6 +398,28 @@ export class Mat3 implements Mat {
   toFloatArray(): Float32Array {
     return new Float32Array(this);
   } 
+  
+  toIntShortArray(): Int32Array {
+    return new Int32Array([
+      this._matrix[0], 
+      this._matrix[1],
+      this._matrix[3],
+      this._matrix[4],
+      this._matrix[6],
+      this._matrix[7],
+    ]);
+  }
+  
+  toFloatShortArray(): Float32Array {
+    return new Float32Array([
+      +(this._matrix[0].toFixed(5)), 
+      +(this._matrix[1].toFixed(5)),
+      +(this._matrix[3].toFixed(5)),
+      +(this._matrix[4].toFixed(5)),
+      +(this._matrix[6].toFixed(5)),
+      +(this._matrix[7].toFixed(5)),
+    ]);
+  } 
 
   *[Symbol.iterator](): Iterator<number> {
     for (let i = 0; i < 9; i++) {      
