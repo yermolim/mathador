@@ -22,6 +22,7 @@ export interface Vec extends NumberElements {
 	addScalar(s: number): Vec;
 	multiplyByScalar(s: number): Vec;
 	normalize(): Vec;
+	truncate(decimalDigits: number): Vec;
 	getMagnitude(): number;
 }
 export interface Mat extends NumberElements {
@@ -80,6 +81,7 @@ export declare class Vec2 implements Vec {
 	applyMat3(m: Mat): Vec2;
 	lerp(v: Vec2, t: number): Vec2;
 	rotate(center: Vec2, theta: number): Vec2;
+	truncate(decimalDigits?: number): Vec2;
 	equals(v: Vec2, precision?: number): boolean;
 	toArray(): number[];
 	toIntArray(): Int32Array;
@@ -174,6 +176,7 @@ export declare class Vec3 implements Vec {
 	applyMat3(m: Mat): Vec3;
 	applyMat4(m: Mat): Vec3;
 	lerp(v: Vec3, t: number): Vec3;
+	truncate(decimalDigits?: number): Vec3;
 	equals(v: Vec3, precision?: number): boolean;
 	toArray(): number[];
 	toIntArray(): Int32Array;
@@ -364,6 +367,7 @@ export declare class Vec4 implements Vec {
 	dotProduct(v: Vec4): number;
 	applyMat4(m: Mat): Vec4;
 	lerp(v: Vec4, t: number): Vec4;
+	truncate(decimalDigits?: number): Vec4;
 	equals(v: Vec4, precision?: number): boolean;
 	toArray(): number[];
 	toIntArray(): Int32Array;

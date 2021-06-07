@@ -278,6 +278,11 @@ class Vec2 {
         this.y = x * s + y * c + center.y;
         return this;
     }
+    truncate(decimalDigits = 5) {
+        this.x = +this.x.toFixed(decimalDigits);
+        this.y = +this.y.toFixed(decimalDigits);
+        return this;
+    }
     equals(v, precision = 6) {
         if (!v) {
             return false;
@@ -981,6 +986,12 @@ class Vec3 {
         this.x += t * (v.x - this.x);
         this.y += t * (v.y - this.y);
         this.z += t * (v.z - this.z);
+        return this;
+    }
+    truncate(decimalDigits = 5) {
+        this.x = +this.x.toFixed(decimalDigits);
+        this.y = +this.y.toFixed(decimalDigits);
+        this.z = +this.z.toFixed(decimalDigits);
         return this;
     }
     equals(v, precision = 6) {
@@ -1689,6 +1700,13 @@ class Vec4 {
         this.y += t * (v.y - this.y);
         this.z += t * (v.z - this.z);
         this.w += t * (v.w - this.w);
+        return this;
+    }
+    truncate(decimalDigits = 5) {
+        this.x = +this.x.toFixed(decimalDigits);
+        this.y = +this.y.toFixed(decimalDigits);
+        this.z = +this.z.toFixed(decimalDigits);
+        this.w = +this.w.toFixed(decimalDigits);
         return this;
     }
     equals(v, precision = 6) {
