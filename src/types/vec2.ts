@@ -62,9 +62,14 @@ export class Vec2 implements Vec {
   /**
    * get minimum and maximum points from a vector array
    * @param values 
-   * @returns 
+   * @returns if no values provided, two zero vectors are returned as min amd max values
    */
   static minMax(...values: Vec2[]): {min: Vec2; max: Vec2} {
+    values = (values || []).filter(x => x);
+    if (!values.length) {
+      return { min: new Vec2(), max: new Vec2() };
+    }
+
     const min = new Vec2(
       Math.min(...values.map(x => x.x)),
       Math.min(...values.map(x => x.y)),

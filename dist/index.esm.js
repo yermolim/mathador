@@ -203,6 +203,10 @@ class Vec2 {
         return Math.sqrt(x * x + y * y);
     }
     static minMax(...values) {
+        values = (values || []).filter(x => x);
+        if (!values.length) {
+            return { min: new Vec2(), max: new Vec2() };
+        }
         const min = new Vec2(Math.min(...values.map(x => x.x)), Math.min(...values.map(x => x.y)));
         const max = new Vec2(Math.max(...values.map(x => x.x)), Math.max(...values.map(x => x.y)));
         return { min, max };
