@@ -1,6 +1,6 @@
 {
   "name": "mathador",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "a typescript module implementing some vector and matrix math",
   "main": "dist/index.umd.min.js",
   "module": "dist/index.esm.min.js",
