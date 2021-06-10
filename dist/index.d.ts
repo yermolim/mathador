@@ -30,6 +30,7 @@ export interface Mat extends NumberElements {
 	clone(): Mat;
 	invert(): Mat;
 	transpose(): Mat;
+	truncate(decimalDigits: number): Mat;
 	getDeterminant(): number;
 }
 export declare type EulerRotationOrder = "XYZ" | "ZYX" | "YZX" | "XZY" | "ZXY" | "YXZ";
@@ -127,6 +128,7 @@ export declare class Mat3 implements Mat {
 		r: number;
 		s: Vec2;
 	};
+	truncate(decimalDigits?: number): Mat3;
 	equals(m: Mat3, precision?: number): boolean;
 	applyScaling(x: number, y?: number): Mat3;
 	applyTranslation(x: number, y: number): Mat3;
@@ -269,6 +271,7 @@ export declare class Mat4 implements Mat {
 		r: Quaternion;
 		s: Vec3;
 	};
+	truncate(decimalDigits?: number): Mat4;
 	equals(m: Mat4, precision?: number): boolean;
 	applyScaling(x: number, y?: number, z?: number): Mat4;
 	applyTranslation(x: number, y: number, z: number): Mat4;

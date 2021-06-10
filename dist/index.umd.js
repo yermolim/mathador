@@ -539,6 +539,12 @@
             }
             return { t, r, s };
         }
+        truncate(decimalDigits = 5) {
+            for (let i = 0; i < this.length; i++) {
+                this._matrix[i] = +this._matrix[i].toFixed(decimalDigits);
+            }
+            return this;
+        }
         equals(m, precision = 6) {
             for (let i = 0; i < this.length; i++) {
                 if (+this._matrix[i].toFixed(precision) !== +m._matrix[i].toFixed(precision)) {
@@ -1311,6 +1317,12 @@
             const rm = new Mat4().set(this.x_x / s_x, this.x_y / s_x, this.x_z / s_x, 0, this.y_x / s_y, this.y_y / s_y, this.y_z / s_y, 0, this.z_x / s_z, this.z_y / s_z, this.z_z / s_z, 0, 0, 0, 0, 1);
             const r = Quaternion.fromRotationMatrix(rm);
             return { t, r, s };
+        }
+        truncate(decimalDigits = 5) {
+            for (let i = 0; i < this.length; i++) {
+                this._matrix[i] = +this._matrix[i].toFixed(decimalDigits);
+            }
+            return this;
         }
         equals(m, precision = 6) {
             for (let i = 0; i < this.length; i++) {

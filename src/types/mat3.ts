@@ -363,6 +363,13 @@ export class Mat3 implements Mat {
     return {t, r, s};
   }
 
+  truncate(decimalDigits = 5): Mat3 {
+    for (let i = 0; i < this.length; i++) {
+      this._matrix[i] = +this._matrix[i].toFixed(decimalDigits);
+    }
+    return this;
+  }
+
   equals(m: Mat3, precision = 6): boolean {
     for (let i = 0; i < this.length; i++) {
       if (+this._matrix[i].toFixed(precision) !== +m._matrix[i].toFixed(precision)) {

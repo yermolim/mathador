@@ -72,5 +72,6 @@ export interface Mat extends NumberElements {
   clone(): Mat;
   invert(): Mat;
   transpose(): Mat;
+  truncate(decimalDigits: number): Mat;
   getDeterminant(): number;
 }
