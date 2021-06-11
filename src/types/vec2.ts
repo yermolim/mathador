@@ -26,7 +26,7 @@ export class Vec2 implements Vec {
     return new Vec2(v1.x + v2.x, v1.y + v2.y);
   }
 
-  static substract(v1: Vec2, v2: Vec2): Vec2 {
+  static subtract(v1: Vec2, v2: Vec2): Vec2 {
     return new Vec2(v1.x - v2.x, v1.y - v2.y);
   }
 
@@ -128,7 +128,7 @@ export class Vec2 implements Vec {
     return this;
   }
 
-  substract(v: Vec2): Vec2 {
+  subtract(v: Vec2): Vec2 {
     this.x -= v.x;
     this.y -= v.y;
     return this;

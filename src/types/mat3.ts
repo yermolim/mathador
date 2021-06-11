@@ -73,8 +73,8 @@ export class Mat3 implements Mat {
   
     mat.applyTranslation(-aMin.x, -aMin.y); // move to 0, 0 before transforming
   
-    const aLen = Vec2.substract(aMax, aMin).getMagnitude();
-    const bLen = Vec2.substract(bMax, bMin).getMagnitude();
+    const aLen = Vec2.subtract(aMax, aMin).getMagnitude();
+    const bLen = Vec2.subtract(bMax, bMin).getMagnitude();
     const scale = bLen / aLen;
     mat.applyScaling(scale);
   

@@ -28,7 +28,7 @@ export class Vec3 implements Vec {
     return new Vec3(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
   }
 
-  static substract(v1: Vec3, v2: Vec3): Vec3 {
+  static subtract(v1: Vec3, v2: Vec3): Vec3 {
     return new Vec3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
   }
 
@@ -144,7 +144,7 @@ export class Vec3 implements Vec {
     return this;
   }
 
-  substract(v: Vec3): Vec3 {
+  subtract(v: Vec3): Vec3 {
     this.x -= v.x;
     this.y -= v.y;
     this.z -= v.z;
@@ -172,7 +172,7 @@ export class Vec3 implements Vec {
   }
 
   onPlane(planeNormal: Vec3): Vec3 {
-    return this.substract(this.clone().onVector(planeNormal));
+    return this.subtract(this.clone().onVector(planeNormal));
   }
   
   applyMat3(m: Mat): Vec3 {

@@ -46,7 +46,7 @@ export class Segment {
   }
 
   getDelta(): Vec3 {
-    return Vec3.substract(this.b, this.a);
+    return Vec3.subtract(this.b, this.a);
   }
 
   getLength(): number {

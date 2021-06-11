@@ -58,7 +58,7 @@ export declare class Vec2 implements Vec {
 	static addScalar(v: Vec2, s: number): Vec2;
 	static normalize(v: Vec2): Vec2;
 	static add(v1: Vec2, v2: Vec2): Vec2;
-	static substract(v1: Vec2, v2: Vec2): Vec2;
+	static subtract(v1: Vec2, v2: Vec2): Vec2;
 	static dotProduct(v1: Vec2, v2: Vec2): number;
 	static applyMat3(v: Vec2, m: Mat): Vec2;
 	static lerp(v1: Vec2, v2: Vec2, t: number): Vec2;
@@ -77,7 +77,7 @@ export declare class Vec2 implements Vec {
 	getMagnitude(): number;
 	normalize(): Vec2;
 	add(v: Vec2): Vec2;
-	substract(v: Vec2): Vec2;
+	subtract(v: Vec2): Vec2;
 	dotProduct(v: Vec2): number;
 	applyMat3(m: Mat): Vec2;
 	lerp(v: Vec2, t: number): Vec2;
@@ -150,7 +150,7 @@ export declare class Vec3 implements Vec {
 	static addScalar(v: Vec3, s: number): Vec3;
 	static normalize(v: Vec3): Vec3;
 	static add(v1: Vec3, v2: Vec3): Vec3;
-	static substract(v1: Vec3, v2: Vec3): Vec3;
+	static subtract(v1: Vec3, v2: Vec3): Vec3;
 	static dotProduct(v1: Vec3, v2: Vec3): number;
 	static crossProduct(v1: Vec3, v2: Vec3): Vec3;
 	static onVector(v1: Vec3, v2: Vec3): Vec3;
@@ -170,7 +170,7 @@ export declare class Vec3 implements Vec {
 	getAngle(v: Vec3): number;
 	normalize(): Vec3;
 	add(v: Vec3): Vec3;
-	substract(v: Vec3): Vec3;
+	subtract(v: Vec3): Vec3;
 	dotProduct(v: Vec3): number;
 	crossProduct(v: Vec3): Vec3;
 	onVector(v: Vec3): Vec3;
@@ -352,7 +352,7 @@ export declare class Vec4 implements Vec {
 	static addScalar(v: Vec4, s: number): Vec4;
 	static normalize(v: Vec4): Vec4;
 	static add(v1: Vec4, v2: Vec4): Vec4;
-	static substract(v1: Vec4, v2: Vec4): Vec4;
+	static subtract(v1: Vec4, v2: Vec4): Vec4;
 	static dotProduct(v1: Vec4, v2: Vec4): number;
 	static applyMat4(v: Vec4, m: Mat): Vec4;
 	static lerp(v1: Vec4, v2: Vec4, t: number): Vec4;
@@ -366,7 +366,7 @@ export declare class Vec4 implements Vec {
 	getMagnitude(): number;
 	normalize(): Vec4;
 	add(v: Vec4): Vec4;
-	substract(v: Vec4): Vec4;
+	subtract(v: Vec4): Vec4;
 	dotProduct(v: Vec4): number;
 	applyMat4(m: Mat): Vec4;
 	lerp(v: Vec4, t: number): Vec4;

@@ -71,7 +71,7 @@ export class Plane {
   }
 
   setFromPoints(a: Vec3, b: Vec3, c: Vec3): Plane {
-    const normal = Vec3.substract(b, a).crossProduct(Vec3.substract(c, a));    
+    const normal = Vec3.subtract(b, a).crossProduct(Vec3.subtract(c, a));    
     if (!normal.getMagnitude()) {      
       throw new Error("Normal length is zero. Points are equal or collinear");
     }

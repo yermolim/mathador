@@ -38,8 +38,8 @@ export class Triangle {
   }
 
   getArea(): number {    
-    const u = this.b.clone().substract(this.a);
-    const v = this.c.clone().substract(this.a);
+    const u = this.b.clone().subtract(this.a);
+    const v = this.c.clone().subtract(this.a);
 
     return u.crossProduct(v).getMagnitude() / 2;
   }
@@ -49,16 +49,16 @@ export class Triangle {
   }
 
   getNormal(): Vec3 {
-    const u = this.b.clone().substract(this.a);
-    const v = this.c.clone().substract(this.a);
+    const u = this.b.clone().subtract(this.a);
+    const v = this.c.clone().subtract(this.a);
 
     return u.crossProduct(v).normalize();
   }
 
   getBary(v: Vec3): Vec3 {
-    const ac = this.c.clone().substract(this.a);
-    const ab = this.b.clone().substract(this.a);
-    const av = v.clone().substract(this.a);
+    const ac = this.c.clone().subtract(this.a);
+    const ab = this.b.clone().subtract(this.a);
+    const av = v.clone().subtract(this.a);
 
     const acSqr = ac.dotProduct(ac);
     const acab = ac.dotProduct(ab);

@@ -176,7 +176,7 @@ class Vec2 {
     static add(v1, v2) {
         return new Vec2(v1.x + v2.x, v1.y + v2.y);
     }
-    static substract(v1, v2) {
+    static subtract(v1, v2) {
         return new Vec2(v1.x - v2.x, v1.y - v2.y);
     }
     static dotProduct(v1, v2) {
@@ -250,7 +250,7 @@ class Vec2 {
         this.y += v.y;
         return this;
     }
-    substract(v) {
+    subtract(v) {
         this.x -= v.x;
         this.y -= v.y;
         return this;
@@ -359,8 +359,8 @@ class Mat3 {
     static from4Vec2(aMin, aMax, bMin, bMax, noRotation = false) {
         const mat = new Mat3();
         mat.applyTranslation(-aMin.x, -aMin.y);
-        const aLen = Vec2.substract(aMax, aMin).getMagnitude();
-        const bLen = Vec2.substract(bMax, bMin).getMagnitude();
+        const aLen = Vec2.subtract(aMax, aMin).getMagnitude();
+        const bLen = Vec2.subtract(bMax, bMin).getMagnitude();
         const scale = bLen / aLen;
         mat.applyScaling(scale);
         if (!noRotation) {
@@ -852,7 +852,7 @@ class Vec3 {
     static add(v1, v2) {
         return new Vec3(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
     }
-    static substract(v1, v2) {
+    static subtract(v1, v2) {
         return new Vec3(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z);
     }
     static dotProduct(v1, v2) {
@@ -944,7 +944,7 @@ class Vec3 {
         this.z += v.z;
         return this;
     }
-    substract(v) {
+    subtract(v) {
         this.x -= v.x;
         this.y -= v.y;
         this.z -= v.z;
@@ -967,7 +967,7 @@ class Vec3 {
         return v.clone().multiplyByScalar(v.clone().dotProduct(this) / (magnitude * magnitude));
     }
     onPlane(planeNormal) {
-        return this.substract(this.clone().onVector(planeNormal));
+        return this.subtract(this.clone().onVector(planeNormal));
     }
     applyMat3(m) {
         if (m.length !== 9) {
@@ -1132,7 +1132,7 @@ class Mat4 {
     static lookAt(source, target, up) {
         const vZ = Vec3.equals(source, target)
             ? new Vec3(0, 0, 1)
-            : Vec3.substract(source, target).normalize();
+            : Vec3.subtract(source, target).normalize();
         let vX = Vec3.crossProduct(up, vZ).normalize();
         if (!vX.getMagnitude()) {
             if (Math.abs(up.z) === 1) {
@@ -1418,7 +1418,7 @@ class Plane {
         return this;
     }
     setFromPoints(a, b, c) {
-        const normal = Vec3.substract(b, a).crossProduct(Vec3.substract(c, a));
+        const normal = Vec3.subtract(b, a).crossProduct(Vec3.subtract(c, a));
         if (!normal.getMagnitude()) {
             throw new Error("Normal length is zero. Points are equal or collinear");
         }
@@ -1488,7 +1488,7 @@ class Segment {
         return Vec3.add(this.a, this.b).multiplyByScalar(0.5);
     }
     getDelta() {
-        return Vec3.substract(this.b, this.a);
+        return Vec3.subtract(this.b, this.a);
     }
     getLength() {
         return getDistance3D(this.a.x, this.a.y, this.a.z, this.b.x, this.b.y, this.b.z);
@@ -1534,22 +1534,22 @@ class Triangle {
         return this;
     }
     getArea() {
-        const u = this.b.clone().substract(this.a);
-        const v = this.c.clone().substract(this.a);
+        const u = this.b.clone().subtract(this.a);
+        const v = this.c.clone().subtract(this.a);
         return u.crossProduct(v).getMagnitude() / 2;
     }
     getCenter() {
         return this.a.clone().add(this.b).add(this.c).multiplyByScalar(1 / 3);
     }
     getNormal() {
-        const u = this.b.clone().substract(this.a);
-        const v = this.c.clone().substract(this.a);
+        const u = this.b.clone().subtract(this.a);
+        const v = this.c.clone().subtract(this.a);
         return u.crossProduct(v).normalize();
     }
     getBary(v) {
-        const ac = this.c.clone().substract(this.a);
-        const ab = this.b.clone().substract(this.a);
-        const av = v.clone().substract(this.a);
+        const ac = this.c.clone().subtract(this.a);
+        const ab = this.b.clone().subtract(this.a);
+        const av = v.clone().subtract(this.a);
         const acSqr = ac.dotProduct(ac);
         const acab = ac.dotProduct(ab);
         const acav = ac.dotProduct(av);
@@ -1614,7 +1614,7 @@ class Vec4 {
     static add(v1, v2) {
         return new Vec4(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z, v1.w + v2.w);
     }
-    static substract(v1, v2) {
+    static subtract(v1, v2) {
         return new Vec4(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z, v1.w - v2.w);
     }
     static dotProduct(v1, v2) {
@@ -1689,7 +1689,7 @@ class Vec4 {
         this.w += v.w;
         return this;
     }
-    substract(v) {
+    subtract(v) {
         this.x -= v.x;
         this.y -= v.y;
         this.z -= v.z;

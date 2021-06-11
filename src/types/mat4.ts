@@ -161,7 +161,7 @@ export class Mat4 implements Mat {
     // check if source and target are same positions
     const vZ = Vec3.equals(source, target)
       ? new Vec3(0, 0, 1)
-      : Vec3.substract(source, target).normalize();
+      : Vec3.subtract(source, target).normalize();
 
     let vX = Vec3.crossProduct(up, vZ).normalize();
     // check if vZ and up are parallel
