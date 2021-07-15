@@ -65,6 +65,7 @@ export declare class Vec2 implements Vec {
 	static rotate(v: Vec2, center: Vec2, theta: number): Vec2;
 	static equals(v1: Vec2, v2: Vec2, precision?: number): boolean;
 	static getDistance(v1: Vec2, v2: Vec2): number;
+	static getAngle(v1: Vec2, v2: Vec2): number;
 	static minMax(...values: Vec2[]): {
 		min: Vec2;
 		max: Vec2;
@@ -75,6 +76,7 @@ export declare class Vec2 implements Vec {
 	multiplyByScalar(s: number): Vec2;
 	addScalar(s: number): Vec2;
 	getMagnitude(): number;
+	getAngle(v: Vec2): number;
 	normalize(): Vec2;
 	add(v: Vec2): Vec2;
 	subtract(v: Vec2): Vec2;

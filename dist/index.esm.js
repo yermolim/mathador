@@ -202,6 +202,9 @@ class Vec2 {
         const y = v2.y - v1.y;
         return Math.sqrt(x * x + y * y);
     }
+    static getAngle(v1, v2) {
+        return v1.getAngle(v2);
+    }
     static minMax(...values) {
         values = (values || []).filter(x => x);
         if (!values.length) {
@@ -236,6 +239,18 @@ class Vec2 {
     }
     getMagnitude() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+    getAngle(v) {
+        const a2 = Math.atan2(this.x, this.y);
+        const a1 = Math.atan2(v.x, v.y);
+        let angle = a1 - a2;
+        if (angle > Math.PI) {
+            angle -= 2 * Math.PI;
+        }
+        else if (angle <= -Math.PI) {
+            angle += 2 * Math.PI;
+        }
+        return angle;
     }
     normalize() {
         const m = this.getMagnitude();
