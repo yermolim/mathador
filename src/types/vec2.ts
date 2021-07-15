@@ -58,6 +58,14 @@ export class Vec2 implements Vec {
     const y = v2.y - v1.y;
     return Math.sqrt(x * x + y * y);
   }  
+  
+  /**
+   * calculate angle between two vectors
+   * @returns angle between two vectors in radians (from 0 to 2PI)
+   */
+  static getAngle(v1: Vec2, v2: Vec2): number {
+    return v1.getAngle(v2);
+  }
 
   /**
    * get minimum and maximum points from a vector array
@@ -111,6 +119,29 @@ export class Vec2 implements Vec {
 
   getMagnitude(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+
+  /**
+   * calculate angle between this vector and the other vector
+   * @param v vector to calculate angle to
+   * @returns angle between this vector and the other vector in radians (from 0 to 2PI)
+   */
+  getAngle(v: Vec2): number {
+    const a2 = Math.atan2(this.x, this.y);
+    const a1 = Math.atan2(v.x, v.y);
+    let angle = a1 - a2;
+    // normalizing angle from 0 to 2PI
+    if (angle > Math.PI) { 
+      angle -= 2 * Math.PI; 
+    }
+    else if (angle <= -Math.PI) { 
+      angle += 2 * Math.PI; 
+    }
+    // normalizing angle from -PI to PI
+    // if (angle < 0) { 
+    //   angle += 2 * Math.PI; 
+    // }
+    return angle;
   }
 
   normalize(): Vec2 {
